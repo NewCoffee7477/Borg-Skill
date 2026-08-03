@@ -34,13 +34,20 @@ class PackageValidatorTests(unittest.TestCase):
         self.assertEqual(validate_package(ROOT), [])
 
     def test_manifest_version_drift_is_rejected(self) -> None:
-        """A stale or invented version cannot share the working draft's hashes."""
+        """A stale or invented version cannot share the release's hashes."""
 
         manifest = json.loads((ROOT / "MANIFEST.json").read_text(encoding="utf-8"))
-        manifest["version"] = "0.3.2-working-draft"
+        manifest["version"] = "0.3.2"
         errors: list[str] = []
         validate_manifest_metadata(manifest, errors)
         self.assertIn(f"MANIFEST.json version must be {EXPECTED_PACKAGE_VERSION}", errors)
+
+    def test_manifest_has_no_build_history_status_fields(self) -> None:
+        """The public ledger contains identity and bytes, not process narration."""
+
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(set(manifest), {"package", "version", "files"})
 
     def test_only_root_git_transport_metadata_is_excluded(self) -> None:
         """Git internals stay out while nested repository content stays visible.

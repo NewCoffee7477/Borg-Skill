@@ -39,7 +39,7 @@ Before broad source inspection or any dynamic test, read [references/untrusted-s
 
 ## Collaborator routing
 
-Borg interoperates with two optional, separately installed skills. Keep the baseline Borg workflow usable when neither, either, or both are installed. Treat each current installed entrypoint as authority for its own eligibility, lifecycle, host controls, model settings, isolation, output validation, failure behavior, and accounting. Do not copy or override collaborator orchestration.
+Borg interoperates with two optional, separately installed skills. Keep the baseline Borg workflow usable when neither, either, or both are installed. Treat each discovered installed entrypoint as authority for its own eligibility, lifecycle, host controls, model settings, isolation, output validation, failure behavior, and accounting. Do not copy or override collaborator orchestration.
 
 Record the collaboration envelope as version `3.0`. Include exactly one check for `subagent-swarm` and one for `doctrine-parliamentarian`. Separate discovery state and check time, nullable inspected contract, normalized applicability/reason/authority reference, lifecycle/native status/result state/accounting, consequence, and nullable versioned adapter. Keep native status as the exact string returned; do not freeze installed-skill statuses into Borg's portable contract.
 

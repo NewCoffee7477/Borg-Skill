@@ -34,8 +34,14 @@ class ReleaseValidatorTests(unittest.TestCase):
     def test_profiles_are_deterministic_and_host_specific(self) -> None:
         first = build_release(self.root, "codex", self.output / "one")
         second = build_release(self.root, "codex", self.output / "two")
+        self.assertEqual(first[0].name, "borg-0.3.1-codex.zip")
         self.assertEqual(hashlib.sha256(first[0].read_bytes()).digest(), hashlib.sha256(second[0].read_bytes()).digest())
         self.assertEqual(validate_release(first[0], source_root=self.root), [])
+        release_manifest = json.loads(first[1].read_text(encoding="utf-8"))
+        self.assertEqual(
+            set(release_manifest),
+            {"schema", "package", "version", "profile", "common_core_sha256", "files"},
+        )
         openclaw = build_release(self.root, "openclaw", self.output / "openclaw")
         with zipfile.ZipFile(first[0]) as codex_zip, zipfile.ZipFile(openclaw[0]) as openclaw_zip:
             self.assertIn("agents/openai.yaml", codex_zip.namelist())

@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """Build deterministic, host-specific Borg archives from an exact allowlist.
 
-This tool is packaging-only.  It never installs, invokes, publishes, or
-distributes Borg.  Files are copied byte-for-byte into a caller-selected output
-directory (or a fresh temporary directory), with normalized archive modes and
-timestamps so equal inputs produce equal ZIP bytes on every supported host.
+Files are copied byte-for-byte into a caller-selected output directory (or a
+fresh temporary directory), with normalized archive modes and timestamps so
+equal inputs produce equal ZIP bytes on every supported host.
 """
 
 from __future__ import annotations
@@ -144,7 +143,6 @@ def build_release(root: Path, profile: str, output_dir: Path) -> tuple[Path, Pat
         "package": "borg",
         "version": config["version"],
         "profile": profile,
-        "runtime_acceptance": "not-performed",
         "common_core_sha256": common_core_digest(root, config),
         "files": entries,
     }

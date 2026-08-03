@@ -1,9 +1,6 @@
 {
   "package": "borg",
-  "version": "0.3.1-working-draft",
-  "status": "working-draft",
-  "manifest_scope": "project-source",
-  "runtime_acceptance": "not-performed",
+  "version": "0.3.1",
   "files": [
     {
       "path": ".gitignore",
@@ -12,13 +9,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 6389,
-      "sha256": "3d13a0f0bb66ecd6b5c19089398365cc77f90d9283cfc07cf9085275fd1dbf54"
+      "bytes": 6600,
+      "sha256": "eac6d272d347c647f69846e4f8d36a29ce601eacdaba795e8e82b90c8bf5d3cb"
     },
     {
       "path": "SKILL.md",
-      "bytes": 34113,
-      "sha256": "f08df5aabd63c42f3185f1aa391dbfc509b25fbb278130363e0ff73772020d30"
+      "bytes": 34116,
+      "sha256": "151a2551a0351581a0c2338ce04ee1ced922424a5f757ede6ce1ddd95640c649"
     },
     {
       "path": "agents/openai.yaml",
@@ -82,8 +79,8 @@
     },
     {
       "path": "references/research-protocol.md",
-      "bytes": 8811,
-      "sha256": "9f214b3d6c092a787c023c101f8b78a73cbe46628a3deece61de0c25a168e9b5"
+      "bytes": 8814,
+      "sha256": "e28e1e1da329ad9e975c1ed20aa729ace00383e3719d4d1548446f3b6f3be537"
     },
     {
       "path": "references/swarm-cleric-protocol.md",
@@ -97,13 +94,13 @@
     },
     {
       "path": "release/profiles.json",
-      "bytes": 812,
-      "sha256": "55a9960a0501aafa93051e1bdae0f784f14263d6d8e6f1da5f22789db5a2a844"
+      "bytes": 798,
+      "sha256": "48ad147248df4f6f3dcf4534332a773caf9c42687ed05638f9219b7d2290e921"
     },
     {
       "path": "scripts/build_release.py",
-      "bytes": 8804,
-      "sha256": "d0e74238a9ca66a7b63a448c82e538e70216536e7a48ea5b77a8bd9c94242871"
+      "bytes": 8666,
+      "sha256": "5907855c677f6b2b4c4bc3015b91248364bb26b27698226062a9726928d1b8b8"
     },
     {
       "path": "scripts/scan_untrusted_source.py",
@@ -117,8 +114,8 @@
     },
     {
       "path": "scripts/validate_package.py",
-      "bytes": 21286,
-      "sha256": "3f0287d06abf5664bb20c7c9c0b926654b795d4104ba19d1d7ac03d9cedfefe1"
+      "bytes": 20603,
+      "sha256": "6830bf41af39527391d1a62e0c2e15c8c82f28a93b7df2c7ed02618628abbc15"
     },
     {
       "path": "scripts/validate_privacy.py",
@@ -127,8 +124,8 @@
     },
     {
       "path": "scripts/validate_release.py",
-      "bytes": 11608,
-      "sha256": "6622e99bad67e813ffb28d9c24c3b80c43a1134bcf9d75939cbdfbcb63dfdcb5"
+      "bytes": 11414,
+      "sha256": "98869ee333e8c2e20ce526df9a16c3c1fbaf192e9d02171c32398b0241665443"
     },
     {
       "path": "tests/test_scan_untrusted_source.py",
@@ -152,8 +149,8 @@
     },
     {
       "path": "tests/test_validate_package.py",
-      "bytes": 2570,
-      "sha256": "73fb304eebea5768397d9bdf636338bc19a398e97fa666ca6c50891328f9a3f6"
+      "bytes": 2866,
+      "sha256": "3530dac4c8469a6b3f3892b874fc3befdf5f3d12eac6ab21c1b43bbbb0e8803a"
     },
     {
       "path": "tests/test_validate_privacy.py",
@@ -162,13 +159,13 @@
     },
     {
       "path": "tests/test_validate_release.py",
-      "bytes": 4796,
-      "sha256": "8fab2d4f2f1bab943cfed8af4b0817b226625e9c6b1c916a9303ba10934565a4"
+      "bytes": 5095,
+      "sha256": "b75c024fa7d7f1a4cc431296f7a035f9bfb5bfb4413f232a54234ac9c9fb2b9e"
     },
     {
       "path": "tests/test_voice_contract.py",
-      "bytes": 1604,
-      "sha256": "e91ba752a6040a59caeb8ff99cd731fc9c3372b4488e430c76d13018bb0bb683"
+      "bytes": 1845,
+      "sha256": "f4e8154617bc103370e2a9bfe5119654b1cfc5ecadb6be63a0b609093cf9643f"
     }
   ]
 }

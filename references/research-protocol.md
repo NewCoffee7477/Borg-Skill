@@ -76,7 +76,7 @@ For every material claim record:
 - impact if wrong;
 - next verification step.
 
-Do not cite a source merely because it is relevant to the project. It must support the specific claim.
+Do not cite a source merely because it is relevant to the assessment. It must support the specific claim.
 
 ## 6. Source coverage by project type
 

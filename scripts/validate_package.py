@@ -1,20 +1,14 @@
 #!/usr/bin/env python3
-"""Run deterministic, inert checks against the Borg project package.
+"""Run deterministic checks against the Borg source package.
 
-This validator is a development-time guardrail.  It never installs or invokes
-Borg and it never touches a Codex or OpenClaw skill directory.  Its purpose is
-to verify facts that can be established from the project source alone:
+The validator verifies the package's portable structure and retained bytes:
 
 * the portable skill entrypoint uses minimal trigger frontmatter;
 * Codex UI metadata is well formed at the small subset Borg uses;
 * every routed Markdown reference exists and long references are navigable;
 * the sample sidecar passes the normative standard-library assessment validator;
 * obsolete hypothetical collaborator fields have not returned; and
-* the project-source manifest exactly describes the retained files.
-
-Runtime behavior is intentionally outside this script's claim.  A passing
-package remains only statically verified until a separately authorized host
-installation and runtime acceptance exercise occur.
+* the source manifest exactly describes the retained files.
 """
 
 from __future__ import annotations
@@ -41,17 +35,17 @@ FRONTMATTER_KEY = re.compile(r"^([a-z][a-z0-9-]*):\s*(.*)$")
 MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 QUOTED_YAML_VALUE = re.compile(r'^\s{2}([a-z_]+):\s+"(.*)"\s*$')
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
-EXPECTED_PACKAGE_VERSION = "0.3.1-working-draft"
+EXPECTED_PACKAGE_VERSION = "0.3.1"
 
 # These files are local filesystem artifacts or self-referential metadata and
 # therefore do not belong in the hash inventory.  ``MANIFEST.json`` cannot
 # hash itself without a circular definition; Finder metadata and Python byte
-# code are never part of the project payload.
+# code are never part of the source package.
 MANIFEST_EXCLUSIONS = {"MANIFEST.json"}
 
 # Source trees are expected to be reviewable text.  Release archives and other
 # opaque payloads have a separate, exact-manifest contract and are never valid
-# as unmanifested project source.
+# as unmanifested source-tree content.
 FORBIDDEN_BINARY_SUFFIXES = {".pyc", ".zip", ".tar", ".gz", ".dmg", ".png", ".jpg", ".jpeg", ".pdf"}
 
 # Modern macOS can attach these two operating-system provenance attributes to
@@ -186,7 +180,7 @@ def validate_markdown_routing(root: Path, errors: list[str]) -> None:
 
 
 def validate_collaborator_language(root: Path, errors: list[str]) -> None:
-    """Prevent the obsolete draft protocol from re-entering runtime artifacts."""
+    """Prevent obsolete collaborator vocabulary from entering skill artifacts."""
 
     runtime_paths = [root / "SKILL.md"]
     runtime_paths.extend(sorted((root / "references").glob("*.md")))
@@ -310,7 +304,7 @@ def validate_source_hygiene(root: Path, errors: list[str]) -> None:
         if "__pycache__" in relative.parts:
             errors.append(f"Forbidden Python cache path: {label}")
         if stat.S_ISLNK(info.st_mode):
-            errors.append(f"Symlink is forbidden in project source: {label}")
+            errors.append(f"Symlink is forbidden in the source tree: {label}")
             continue
         if not (stat.S_ISREG(info.st_mode) or stat.S_ISDIR(info.st_mode)):
             errors.append(f"Special filesystem object is forbidden: {label}")
@@ -337,7 +331,7 @@ def validate_source_hygiene(root: Path, errors: list[str]) -> None:
 
     # macOS marks ACL-bearing modes with ``+`` in ``ls -lde``.  Inspect every
     # source object, including the root, because a child ACL can affect copied
-    # data even when the project root itself is clean.  Failure to provide this
+    # data even when the source root itself is clean.  Failure to provide this
     # host capability does not invent a clean result; xattr checks above still
     # run wherever Python exposes them.
     for path in source_objects:
@@ -362,28 +356,24 @@ def validate_privacy(root: Path, errors: list[str]) -> None:
 
 
 def validate_manifest_metadata(manifest: dict[str, Any], errors: list[str]) -> None:
-    """Enforce the release identity and the project's static-only status.
+    """Enforce the public package identity and closed manifest shape.
 
-    Keeping these checks in a small helper makes version drift testable without
-    rewriting the real manifest or manufacturing a second on-disk package.
-    Runtime acceptance remains deliberately false until a separately
-    authorized installation and live host exercise have actually occurred.
+    Keeping these checks in a small helper makes version and field drift
+    testable without rewriting the real manifest. The public source ledger
+    contains package identity plus the exact file inventory; build-history and
+    deployment-status narration do not belong in this contract.
     """
 
+    if set(manifest) != {"package", "version", "files"}:
+        errors.append("MANIFEST.json must contain exactly package, version, and files")
     if manifest.get("package") != "borg":
         errors.append("MANIFEST.json package must be borg")
     if manifest.get("version") != EXPECTED_PACKAGE_VERSION:
         errors.append(f"MANIFEST.json version must be {EXPECTED_PACKAGE_VERSION}")
-    if manifest.get("status") != "working-draft":
-        errors.append("MANIFEST.json status must be working-draft")
-    if manifest.get("manifest_scope") != "project-source":
-        errors.append("MANIFEST.json manifest_scope must be project-source")
-    if manifest.get("runtime_acceptance") != "not-performed":
-        errors.append("MANIFEST.json runtime_acceptance must remain not-performed in this project-only phase")
 
 
 def validate_manifest(root: Path, errors: list[str]) -> None:
-    """Verify exact project-source coverage, byte counts, and SHA-256 hashes."""
+    """Verify exact source coverage, byte counts, and SHA-256 hashes."""
 
     manifest = parse_json(root / "MANIFEST.json", errors)
     if manifest is None:

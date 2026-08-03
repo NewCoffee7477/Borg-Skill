@@ -36,6 +36,10 @@ class VoiceContractTests(unittest.TestCase):
         self.assertIn("never grants repository access", readme)
         self.assertIn("potentially malicious data", readme)
         self.assertIn("“no indicators” still means `untrusted`", readme)
+        self.assertTrue(readme.startswith("# Borg Skill\n"))
+        self.assertNotIn("working" + "-draft", readme)
+        self.assertNotIn("runtime" + "_acceptance", readme)
+        self.assertNotIn("project" + "-source artifact", readme)
 
 
 if __name__ == "__main__":

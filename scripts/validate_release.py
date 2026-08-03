@@ -37,7 +37,7 @@ def validate_release(archive: Path, manifest_path: Path | None = None, checksum_
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         return [f"invalid release manifest: {exc}"]
-    required = {"schema", "package", "version", "profile", "runtime_acceptance", "common_core_sha256", "files"}
+    required = {"schema", "package", "version", "profile", "common_core_sha256", "files"}
     if not isinstance(manifest, dict) or set(manifest) != required:
         errors.append("release manifest has invalid fields")
         return errors
@@ -49,8 +49,6 @@ def validate_release(archive: Path, manifest_path: Path | None = None, checksum_
         errors.append("release manifest profile must be a non-empty string")
     if not isinstance(manifest.get("common_core_sha256"), str) or not SHA256.fullmatch(manifest["common_core_sha256"]):
         errors.append("release manifest common-core digest is invalid")
-    if manifest.get("runtime_acceptance") != "not-performed":
-        errors.append("release manifest must not claim runtime acceptance")
     try:
         checksum_fields = checksum_path.read_text(encoding="ascii").strip().split()
         actual_archive_hash = hashlib.sha256(archive.read_bytes()).hexdigest()
@@ -216,7 +214,7 @@ def main() -> int:
         for error in errors:
             print(f"- {error}")
         return 1
-    print("PASS: deterministic release archive validated; runtime acceptance not performed")
+    print("PASS: deterministic release archive validated")
     return 0
 
 
