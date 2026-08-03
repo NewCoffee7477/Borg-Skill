@@ -1,0 +1,26 @@
+{
+  "schema": "borg-release-profiles-v1",
+  "version": "0.3.1-working-draft",
+  "common": [
+    "SKILL.md",
+    "references/capability-and-fit-model.md",
+    "references/decision-rubric.md",
+    "references/execution-and-definition-of-done.md",
+    "references/methodology.md",
+    "references/output-contracts.md",
+    "references/recurring-discovery.md",
+    "references/research-protocol.md",
+    "references/swarm-cleric-protocol.md",
+    "references/untrusted-source-safety.md",
+    "assets/assessment-schema.json",
+    "assets/assessment-template.md",
+    "assets/collective-registry-template.yaml",
+    "assets/implementation-plan-template.md",
+    "scripts/scan_untrusted_source.py",
+    "scripts/validate_assessment.py"
+  ],
+  "profiles": {
+    "codex": ["agents/openai.yaml"],
+    "openclaw": []
+  }
+}

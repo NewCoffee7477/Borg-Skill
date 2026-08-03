@@ -1,0 +1,49 @@
+# Operating-system metadata is local state and must never enter the public
+# source ledger. AppleDouble sidecars can carry Finder attributes even when the
+# corresponding source file itself is ordinary text.
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Python caches, local environments, test state, and coverage reports are
+# reproducible machine artifacts rather than Borg source. The project runtime
+# intentionally uses only the standard library, so no environment directory is
+# needed in a release or initial commit.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Local secrets and machine-specific configuration are never source. Preserve
+# an intentionally sanitized example file if the project adds one later.
+.env
+.env.*
+!.env.example
+
+# Editors may create per-user workspaces, swap files, and backup files that can
+# reveal local paths or unfinished content. Keep those outside the repository.
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Release archives and their detached ledgers are reproducible outputs. The
+# canonical public repository contains the source and release builder, not
+# locally staged ZIP payloads.
+release/out/
+dist/
+build/
+*.zip
+*.zip.manifest.json
+*.zip.sha256
+
+# Temporary logs and scratch files can contain absolute paths or tool output.
+*.log
+*.tmp

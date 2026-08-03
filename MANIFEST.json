@@ -1,0 +1,174 @@
+{
+  "package": "borg",
+  "version": "0.3.1-working-draft",
+  "status": "working-draft",
+  "manifest_scope": "project-source",
+  "runtime_acceptance": "not-performed",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 1324,
+      "sha256": "e08a0e571cecbbeb23e25cccf6ffcb038a2733859091ceb6e1ce42f356707fcb"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6389,
+      "sha256": "3d13a0f0bb66ecd6b5c19089398365cc77f90d9283cfc07cf9085275fd1dbf54"
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 34113,
+      "sha256": "f08df5aabd63c42f3185f1aa391dbfc509b25fbb278130363e0ff73772020d30"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 234,
+      "sha256": "447367da58f6c29eaf39b0ade8a7e6b02508c3ed78d3d93dd045d5d7940c2285"
+    },
+    {
+      "path": "assets/assessment-schema.json",
+      "bytes": 11680,
+      "sha256": "4cd83362eb8985b73585c056fe09d9e4663dc5702aa920037c15363c36f78361"
+    },
+    {
+      "path": "assets/assessment-template.md",
+      "bytes": 3646,
+      "sha256": "f9770a038ae8bc77de5bf0059fa8e4a171db67cf075c409b18fda7dd9adee65c"
+    },
+    {
+      "path": "assets/collective-registry-template.yaml",
+      "bytes": 1000,
+      "sha256": "eb0109bae07bfa4d9ece8acc856bc9fd96fe1a679d1cb93f8aec585c0376385c"
+    },
+    {
+      "path": "assets/implementation-plan-template.md",
+      "bytes": 1173,
+      "sha256": "a30500623c8a626371b97de6902f1e4f16d484385e6b255d77dd86eaeae86fa2"
+    },
+    {
+      "path": "assets/sample-assessment.json",
+      "bytes": 3186,
+      "sha256": "fbe302cb97c52dacdcb1612c81bf035500fd7e719b9261e89013316d1dd45cfb"
+    },
+    {
+      "path": "references/capability-and-fit-model.md",
+      "bytes": 7336,
+      "sha256": "196b38468a01c786f85615eb8e26dc07e95c3c055c5477735870828811c6babf"
+    },
+    {
+      "path": "references/decision-rubric.md",
+      "bytes": 7661,
+      "sha256": "b43750c0b9c074772f31a0b336c549820f1c2f95b7ba602679562c204b42ff37"
+    },
+    {
+      "path": "references/execution-and-definition-of-done.md",
+      "bytes": 10181,
+      "sha256": "9b75b91c704ebb095ea7d68ec711fcd61674b33b1082c14cf38d17f24be00595"
+    },
+    {
+      "path": "references/methodology.md",
+      "bytes": 6551,
+      "sha256": "acd22c2e10d0ce8f38be612ca25c017b4dd451a2723acb2f131d2b42084bbba3"
+    },
+    {
+      "path": "references/output-contracts.md",
+      "bytes": 7439,
+      "sha256": "0564ddd3d0ca8f976b49e73a2f57ba305bfc0020d1edb512b89b038d2a64d5b2"
+    },
+    {
+      "path": "references/recurring-discovery.md",
+      "bytes": 4276,
+      "sha256": "8086f9ba6456c9e74869cd9e8d9f9e1012471628e4a758388a060cd7e5dc1ab5"
+    },
+    {
+      "path": "references/research-protocol.md",
+      "bytes": 8811,
+      "sha256": "9f214b3d6c092a787c023c101f8b78a73cbe46628a3deece61de0c25a168e9b5"
+    },
+    {
+      "path": "references/swarm-cleric-protocol.md",
+      "bytes": 5387,
+      "sha256": "71d394bfc699ef318488760b38cc7c030b1439165ba3713a28ab03a23fbe90d6"
+    },
+    {
+      "path": "references/untrusted-source-safety.md",
+      "bytes": 5873,
+      "sha256": "659cb0c469bb6649ec3cdedaac7982a8381b76449bf24cdb203c1a12cb419ba8"
+    },
+    {
+      "path": "release/profiles.json",
+      "bytes": 812,
+      "sha256": "55a9960a0501aafa93051e1bdae0f784f14263d6d8e6f1da5f22789db5a2a844"
+    },
+    {
+      "path": "scripts/build_release.py",
+      "bytes": 8804,
+      "sha256": "d0e74238a9ca66a7b63a448c82e538e70216536e7a48ea5b77a8bd9c94242871"
+    },
+    {
+      "path": "scripts/scan_untrusted_source.py",
+      "bytes": 23046,
+      "sha256": "4f431a8b530993871098dd8cc5aaa83c757880c5defa7509e60c2dcc79462d89"
+    },
+    {
+      "path": "scripts/validate_assessment.py",
+      "bytes": 40131,
+      "sha256": "d2fe7df6afec9efb583bd919552250301d041515a0a47ba38da332e1b9602a68"
+    },
+    {
+      "path": "scripts/validate_package.py",
+      "bytes": 21286,
+      "sha256": "3f0287d06abf5664bb20c7c9c0b926654b795d4104ba19d1d7ac03d9cedfefe1"
+    },
+    {
+      "path": "scripts/validate_privacy.py",
+      "bytes": 10187,
+      "sha256": "b491a6a9ab1fe2e58e24200e544e6e8cbeeb16a42431975486ad8f814a9c50ff"
+    },
+    {
+      "path": "scripts/validate_release.py",
+      "bytes": 11608,
+      "sha256": "6622e99bad67e813ffb28d9c24c3b80c43a1134bcf9d75939cbdfbcb63dfdcb5"
+    },
+    {
+      "path": "tests/test_scan_untrusted_source.py",
+      "bytes": 7990,
+      "sha256": "28e9d07bacb0dd995d2f4d563f1f9b0ba235fe48500809b1a6a7618a03c16eb1"
+    },
+    {
+      "path": "tests/test_schema_contract.py",
+      "bytes": 5753,
+      "sha256": "36d9db47088d1bb62c85d93b590cf34d2b1c7d95c8dc689d3f01fd46640ff3bd"
+    },
+    {
+      "path": "tests/test_untrusted_source_contract.py",
+      "bytes": 2000,
+      "sha256": "9ccc5c5e4b1b33fc77d674de981e4b064b8ace797830010324f5117e5775b343"
+    },
+    {
+      "path": "tests/test_validate_assessment.py",
+      "bytes": 10936,
+      "sha256": "d44c734918ac07b2d3951eadfbc23c5cac06bc9859696a36f8fdf918a99e528d"
+    },
+    {
+      "path": "tests/test_validate_package.py",
+      "bytes": 2570,
+      "sha256": "73fb304eebea5768397d9bdf636338bc19a398e97fa666ca6c50891328f9a3f6"
+    },
+    {
+      "path": "tests/test_validate_privacy.py",
+      "bytes": 2886,
+      "sha256": "94b0950056f1b5b8e3195245827146b832b9202a47d0cf4b84a209dad3b6e21e"
+    },
+    {
+      "path": "tests/test_validate_release.py",
+      "bytes": 4796,
+      "sha256": "8fab2d4f2f1bab943cfed8af4b0817b226625e9c6b1c916a9303ba10934565a4"
+    },
+    {
+      "path": "tests/test_voice_contract.py",
+      "bytes": 1604,
+      "sha256": "e91ba752a6040a59caeb8ff99cd731fc9c3372b4488e430c76d13018bb0bb683"
+    }
+  ]
+}

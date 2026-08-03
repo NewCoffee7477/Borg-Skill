@@ -1,0 +1,100 @@
+{
+  "assessment_id": "BORG-A-20250115-001",
+  "date": "2025-01-15",
+  "mode": "targeted-transfer",
+  "source": {
+    "name": "Example",
+    "snapshot": "v1"
+  },
+  "scope": {
+    "target": "Target",
+    "in_scope": [],
+    "out_of_scope": [],
+    "execution_authorized": false
+  },
+  "source_safety": {
+    "trust_state": "untrusted",
+    "instruction_boundary_applied": true,
+    "indicator_scan": {
+      "state": "no-indicators",
+      "reason": null,
+      "evidence_refs": [
+        "SOURCE-SCAN-001"
+      ]
+    },
+    "inspection_gaps": [],
+    "dynamic_execution": {
+      "requested": false,
+      "authorized": false,
+      "authorization_ref": null,
+      "executed": false,
+      "isolation_state": "not-applicable",
+      "network_state": "not-applicable",
+      "credentials_exposed": false,
+      "evidence_refs": []
+    }
+  },
+  "coverage": {
+    "evidence_surfaces": [
+      "docs"
+    ],
+    "saturated": true,
+    "limitations": []
+  },
+  "capabilities": [
+    {
+      "capability_id": "CAP-001",
+      "normalized_name": "Example capability",
+      "evidence_grade": "E3",
+      "confidence": "medium"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "BORG-S001",
+      "classification": "secondary",
+      "capability": "Example capability",
+      "destination": "Target",
+      "assimilation_form": "extend",
+      "reason_codes": [],
+      "hard_gates_pass": true,
+      "score": 70,
+      "score_range": null,
+      "robustness": "moderately-robust",
+      "confidence": "medium",
+      "evidence_refs": [
+        "C-001"
+      ],
+      "promotion_test": "Run a bounded test",
+      "next_action": "Prototype"
+    }
+  ],
+  "risks": [],
+  "contradictions": [],
+  "collaboration": {
+    "envelope_version": "3.0",
+    "checks": [
+      {
+        "skill_id": "subagent-swarm",
+        "discovery": {"state": "absent", "checked_at": "2025-01-15T12:00:00Z", "evidence_refs": ["DISCOVERY-SWARM-001"]},
+        "contract": null,
+        "applicability": {"state": "unknown", "reason": "No installed contract was available to classify applicability.", "authority_ref": null},
+        "lifecycle": {"state": "not-started", "native_status": null, "execution_mode": null, "result_state": "none", "accounted": true, "blocker": null, "evidence_refs": ["LIFECYCLE-SWARM-001"]},
+        "consequence": {"state": "none", "affected_outputs": [], "reason": null, "authority_ref": null},
+        "adapter": null
+      },
+      {
+        "skill_id": "doctrine-parliamentarian",
+        "discovery": {"state": "absent", "checked_at": "2025-01-15T12:00:00Z", "evidence_refs": ["DISCOVERY-DOCTRINE-001"]},
+        "contract": null,
+        "applicability": {"state": "unknown", "reason": "No installed contract was available to classify applicability.", "authority_ref": null},
+        "lifecycle": {"state": "not-started", "native_status": null, "execution_mode": null, "result_state": "none", "accounted": true, "blocker": null, "evidence_refs": ["LIFECYCLE-DOCTRINE-001"]},
+        "consequence": {"state": "none", "affected_outputs": [], "reason": null, "authority_ref": null},
+        "adapter": null
+      }
+    ]
+  },
+  "definition_of_done": {
+    "scope": "pass"
+  }
+}

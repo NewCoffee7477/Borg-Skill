@@ -1,0 +1,43 @@
+registry_version: "1.0"
+collective_name: ""
+last_verified: ""
+owner: ""
+priorities: []
+non_negotiables: []
+components:
+  - component_id: "COMP-001"
+    name: ""
+    type: "skill|plugin|service|application|library|fork|workflow|policy|external"
+    purpose: ""
+    boundaries:
+      in_scope: []
+      non_goals: []
+    canonical_sources: []
+    version: ""
+    last_verified: ""
+    owner: ""
+    capabilities:
+      - capability_id: "INT-CAP-001"
+        name: ""
+        outcome: ""
+        status: "existing|partial|planned|excluded|deprecated|unknown"
+        evidence: []
+        quality_attributes: []
+    interfaces: []
+    data_and_state:
+      data_types: []
+      persistence: ""
+      ownership: ""
+    permissions: []
+    dependencies: []
+    operations:
+      deployment: ""
+      monitoring: []
+      update_path: ""
+      rollback: ""
+    constraints: []
+    known_gaps: []
+    deliberate_exclusions: []
+    roadmap_items: []
+    security_and_governance: []
+    assimilation_notes: []

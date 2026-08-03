@@ -1,0 +1,4 @@
+interface:
+  display_name: "Borg"
+  short_description: "Evidence-backed capability assimilation"
+  default_prompt: "Use $borg to compare a source with a named target and recommend the least-invasive justified capability disposition."
